@@ -1,5 +1,5 @@
 <h1 align=center>
-    <img src="./source/misc/icon.png" width=80>
+    <img src="https://user-images.githubusercontent.com/60784068/274219568-6895c21d-a71b-49ce-9a58-09630ec067ac.svg" width=80>
     <p><i>adebola.</i></p>
     <p>
         <a href="https://github.com/cobiwave/simplefolio/blob/main/LICENSE.md">
