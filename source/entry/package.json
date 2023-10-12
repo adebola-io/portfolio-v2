@@ -1,0 +1,14 @@
+{
+   "name": "adebola-io-entry",
+   "module": "index.ts",
+   "devDependencies": {
+      "bun-types": "latest"
+   },
+   "peerDependencies": {
+      "typescript": "^5.0.0"
+   },
+   "scripts": {
+      "dev": "bun build src/index.html --outdir=dist --watch",
+      "build": "bun build src/index.html --minify --splitting --outdir=dist"
+   }
+}
