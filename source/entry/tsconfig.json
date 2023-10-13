@@ -1,11 +1,11 @@
 {
-   "include": ["src"],
    "compilerOptions": {
-      "lib": ["ESNext", "DOM"],
+      "lib": ["ES2015", "DOM"],
       "module": "esnext",
       "target": "esnext",
       "checkJs": true,
-      "moduleDetection": "force",
+      "moduleDetection": "auto",
+      "moduleResolution": "Bundler",
       "allowImportingTsExtensions": true,
       "noEmit": true,
       "composite": true,

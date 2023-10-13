@@ -1,0 +1,167 @@
+@import "../styles/base";
+
+html,
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+}
+body {
+   margin: 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 0.9375rem;
+   @include normal-transition-speed;
+}
+
+.bg-layers {
+   position: fixed;
+   width: 100vw;
+   height: 100vh;
+   .bg-layer {
+      position: absolute;
+      opacity: 0;
+      @include fill;
+      @include normal-transition-speed;
+      &.ash {
+         background: $color-ash-vacuum-background;
+      }
+      &.nectar {
+         background: $color-nectar-eagle-green;
+      }
+      &.zenith {
+         background: $color-zenith-nocturne;
+      }
+      &.chaos {
+         background: $color-black;
+      }
+   }
+}
+
+.variant-list-container {
+   position: relative;
+   display: flex;
+   align-items: center;
+   width: 100vw;
+   overflow-x: hidden;
+   scroll-behavior: smooth;
+   padding-top: 90px;
+   padding-bottom: 90px;
+}
+
+.variant-list-container::-webkit-scrollbar {
+   display: none;
+}
+
+.variant-list {
+   display: flex;
+   align-items: center;
+   gap: 0.625rem;
+   align-self: stretch;
+   padding-right: 30vw;
+   @include normal-transition-speed;
+}
+
+.variant {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 0.9375rem;
+   text-align: center;
+   font-family: "Poppins";
+   font-size: 0.8125rem;
+   font-weight: 400;
+
+   .variant-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 12.25519rem;
+      height: 16.96875rem;
+      border: 2px solid;
+      border-radius: 0.51419rem;
+      @include effect-style-screen-depth;
+      @include normal-transition-speed;
+      svg {
+         @include normal-transition-speed;
+         transform: scale(0.7);
+      }
+   }
+   .variant-details {
+      height: 46px;
+      opacity: 0;
+      @include normal-transition-speed;
+   }
+
+   // Main card.
+   &.prominent {
+      .variant-card {
+         width: 17.875rem;
+         height: 24.75rem;
+         padding: 0.625rem;
+         gap: 0.625rem;
+         border-radius: 0.75rem;
+         svg {
+            transform: none;
+         }
+      }
+      .variant-details {
+         display: block;
+         opacity: 1;
+      }
+   }
+
+   // Themes
+   &#ash {
+      margin-left: 5%;
+      color: $color-black;
+      & .variant-card {
+         border-color: $color-ash-dark-charcoal;
+         background-color: $color-ash-dark-charcoal;
+         color: $color-white;
+      }
+   }
+   &#nectar {
+      color: $color-nectar-lavender-blue;
+      & .variant-card {
+         color: $color-nectar-persian-pink;
+         border-color: $color-white;
+         background-color: #002139;
+      }
+   }
+   &#zenith {
+      color: $color-white;
+      & .variant-card {
+         color: $color-nectar-lavender-blue;
+         border: 5px solid $color-zenith-vista-blue;
+         background: $color-zenith-skyscraper;
+         @include effect-style-paragon-glow;
+         backdrop-filter: blur(8px);
+      }
+   }
+   &#chaos {
+      color: $color-white;
+      & .variant-card {
+         color: $color-chaos-yellow;
+         border: 5px solid $color-chaos-crayola-red;
+         background: $color-black;
+      }
+   }
+}
+
+.controls {
+   position: absolute;
+   bottom: 10.6875rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 88%;
+   @include inline-padding(6%);
+   svg {
+      cursor: pointer;
+   }
+}
