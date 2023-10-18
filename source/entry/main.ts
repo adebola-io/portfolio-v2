@@ -77,6 +77,35 @@ class App {
          this.previous.bind(this)
       );
       this.dom.controls.forward.addEventListener("click", this.next.bind(this));
+
+      //    // Handle resizing to permit actions only in lansdcape.
+
+      //    /** Resizes other variants based on this. */
+      //    const hoverAction = ((event: MouseEvent) => {
+      //       let target = event.target as unknown as Element;
+      //       this.dom.variants.list().forEach((variant) => {
+      //          if (variant.contains(target)) {
+      //             variant.style.width = "31vw";
+      //          } else {
+      //             variant.style.width = "23vw";
+      //          }
+      //       });
+      //    }).bind(this);
+
+      //    let aspectRatio = innerWidth / innerHeight;
+      //    if (aspectRatio >= 0.8) {
+      //       addEventListener("mouseover", hoverAction);
+      //    } else {
+      //       removeEventListener("mouseover", hoverAction);
+      //    }
+      //    addEventListener("resize", () => {
+      //       let aspectRatio = innerWidth / innerHeight;
+      //       if (aspectRatio >= 0.8) {
+      //          addEventListener("mouseover", hoverAction);
+      //       } else {
+      //          removeEventListener("mouseover", hoverAction);
+      //       }
+      //    });
    }
 
    /** Goes back to the card before the prominent one, if it exists. */
@@ -117,8 +146,8 @@ class App {
       });
       // Shift variant list.
       variantContainers.inner.style.transform = `translateX(-${
-         this.state.prominent * 20
-      }%)`;
+         this.state.prominent * 70
+      }vw)`;
       // Change background color.
       Object.values(backgrounds).forEach((background, index) => {
          if (index === this.state.prominent) {

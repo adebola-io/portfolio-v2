@@ -1,5 +1,7 @@
 @import "../styles/base";
 
+$smol-screen-width: 359px;
+
 html,
 body {
    display: flex;
@@ -17,10 +19,24 @@ body {
    @include normal-transition-speed;
 }
 
+@mixin slide-up($variant-name, $index: 0, $first-frame: 0%) {
+   @media (aspect-ratio >= 0.8) {
+      animation: $variant-name calc(500ms + ($index * 100ms));
+      @keyframes #{$variant-name} {
+         #{$first-frame} {
+            opacity: 0;
+            transform: translateY(20%);
+         }
+      }
+   }
+}
+
 .bg-layers {
    position: fixed;
-   width: 100vw;
-   height: 100vh;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   @include hide-in-landscape;
    .bg-layer {
       position: absolute;
       opacity: 0;
@@ -42,14 +58,14 @@ body {
 }
 
 .variant-list-container {
-   position: relative;
-   display: flex;
-   align-items: center;
-   width: 100vw;
-   overflow-x: hidden;
-   scroll-behavior: smooth;
-   padding-top: 90px;
-   padding-bottom: 90px;
+   @media (aspect-ratio < 0.8) {
+      position: relative;
+      width: 100vw;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      padding-top: 90px;
+      padding-bottom: 90px;
+   }
 }
 
 .variant-list-container::-webkit-scrollbar {
@@ -57,11 +73,17 @@ body {
 }
 
 .variant-list {
+   position: relative;
    display: flex;
    align-items: center;
-   gap: 0.625rem;
-   align-self: stretch;
-   padding-right: 30vw;
+   width: 380vw;
+   @include inline-padding(10vw);
+   @media (aspect-ratio >= 0.8) {
+      width: 100vw;
+      height: 100vh;
+      transform: none !important;
+      @include inline-padding(0);
+   }
    @include normal-transition-speed;
 }
 
@@ -74,39 +96,73 @@ body {
    text-align: center;
    font-family: "Poppins";
    font-size: 0.8125rem;
+   @media (min-width: 720px) and (aspect-ratio < 0.8) {
+      font-size: 1.5rem;
+   }
+   @media (aspect-ratio >= 0.8) {
+      position: absolute;
+      height: 100vh;
+      width: 25vw;
+      @include normal-transition-speed;
+      filter: brightness(0.6);
+      &:hover {
+         --card-transform: scale(0.9);
+         filter: brightness(1);
+      }
+   }
    font-weight: 400;
 
    .variant-card {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 12.25519rem;
-      height: 16.96875rem;
+      width: 70vw; // Values for a prominent card...
+      height: auto;
+      aspect-ratio: 0.75;
+      transform: scale(0.8); // ...shrunken.
+      cursor: pointer;
       border: 2px solid;
       border-radius: 0.51419rem;
       @include effect-style-screen-depth;
       @include normal-transition-speed;
+      @media (aspect-ratio >= 0.8) {
+         width: 19vw;
+         transform: none;
+         border-radius: 1.3rem;
+         transform: var(--card-transform);
+      }
       svg {
          @include normal-transition-speed;
          transform: scale(0.7);
+         @media (max-width: $smol-screen-width) {
+            transform: scale(0.5);
+         }
       }
    }
    .variant-details {
       height: 46px;
       opacity: 0;
+      @media (aspect-ratio >= 0.8) {
+         opacity: initial;
+      }
       @include normal-transition-speed;
    }
 
    // Main card.
    &.prominent {
       .variant-card {
-         width: 17.875rem;
-         height: 24.75rem;
-         padding: 0.625rem;
-         gap: 0.625rem;
-         border-radius: 0.75rem;
-         svg {
+         // only for mobile.
+         @media (aspect-ratio < 0.8) {
             transform: none;
+            padding: 0.625rem;
+            gap: 0.625rem;
+            border-radius: 0.75rem;
+            svg {
+               transform: none;
+               @media (max-width: $smol-screen-width) {
+                  transform: scale(0.7);
+               }
+            }
          }
       }
       .variant-details {
@@ -117,50 +173,70 @@ body {
 
    // Themes
    &#ash {
-      margin-left: 5%;
       color: $color-black;
+      @media (aspect-ratio >= 0.8) {
+         left: 0;
+         background: $color-ash-vacuum-background;
+      }
       & .variant-card {
          border-color: $color-ash-dark-charcoal;
          background-color: $color-ash-dark-charcoal;
          color: $color-white;
+         @include slide-up(ash-card, 1, 0%);
       }
    }
    &#nectar {
       color: $color-nectar-lavender-blue;
+      @media (aspect-ratio >= 0.8) {
+         left: 25%;
+         background: $color-nectar-eagle-green;
+      }
       & .variant-card {
          color: $color-nectar-persian-pink;
          border-color: $color-white;
          background-color: #002139;
+         @include slide-up(ash-card, 1, (0%, 15%));
       }
    }
    &#zenith {
       color: $color-white;
+      @media (aspect-ratio >= 0.8) {
+         left: 50%;
+         background: $color-zenith-nocturne;
+      }
       & .variant-card {
          color: $color-nectar-lavender-blue;
          border: 5px solid $color-zenith-vista-blue;
          background: $color-zenith-skyscraper;
          @include effect-style-paragon-glow;
          backdrop-filter: blur(8px);
+         @include slide-up(zenith-card, 3, (0%, 30%));
       }
    }
    &#chaos {
       color: $color-white;
+      @media (aspect-ratio >= 0.8) {
+         right: 0;
+         background-color: $color-black;
+      }
       & .variant-card {
          color: $color-chaos-yellow;
          border: 5px solid $color-chaos-crayola-red;
          background: $color-black;
+         @include slide-up(chaos-card, 4, (0%, 45%));
       }
    }
 }
 
 .controls {
    position: absolute;
-   bottom: 10.6875rem;
+   bottom: 13vh;
    display: flex;
    justify-content: space-between;
    align-items: center;
    width: 88%;
    @include inline-padding(6%);
+   @include hide-in-landscape;
    svg {
       cursor: pointer;
    }

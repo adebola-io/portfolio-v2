@@ -226,4 +226,7 @@ $color-chaos-yellow: rgb(255, 255, 0);
 
 @mixin normal-transition-speed {
    transition-duration: 400ms;
+   @media (prefers-reduced-motion) {
+      transition-duration: 0ms;
+   }
 }
