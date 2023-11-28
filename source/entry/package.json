@@ -1,0 +1,17 @@
+{
+   "name": "adebola-io-entry",
+   "devDependencies": {
+      "bun-types": "latest"
+   },
+   "peerDependencies": {
+      "typescript": "^5.0.0"
+   },
+   "entry": "index.html",
+   "scripts": {
+      "dev": "vite dev",
+      "build": "vite build"
+   },
+   "dependencies": {
+      "vite": "^4.4.11"
+   }
+}

@@ -1,0 +1,12 @@
+// Fill the parent container.
+@mixin fill {
+   width: 100%;
+   height: 100%;
+}
+
+// Hide a rule if the aspect ratio is landscape.
+@mixin hide-in-landscape {
+   @media (aspect-ratio >= 0.8) {
+      display: none;
+   }
+}

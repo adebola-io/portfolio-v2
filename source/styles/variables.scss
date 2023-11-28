@@ -1,0 +1,232 @@
+$color-black: rgba(0, 0, 0, 1);
+$color-nirvana: linear-gradient(
+   to bottom,
+   rgba(27, 69, 132, 0.108) 8.4%,
+   rgba(210, 49, 49, 0.825) 100%
+);
+$color-white: rgba(255, 255, 255, 1);
+$color-purplegold: linear-gradient(
+   to bottom,
+   rgba(255, 231, 105, 1) 16.15%,
+   rgba(120, 15, 184, 0.47) 49.54%,
+   rgba(223, 42, 183, 0.875) 83.33%
+);
+$color-dreamwave: linear-gradient(
+   to bottom,
+   rgba(246, 144, 255, 0.965) 16.67%,
+   rgba(56, 160, 255, 0.221) 100%
+);
+$color-paramour: linear-gradient(
+   to bottom,
+   rgba(200, 226, 126, 0.786) 0%,
+   rgba(255, 238, 148, 1) 35.94%,
+   rgba(249, 45, 204, 0.977) 60.94%,
+   rgba(145, 5, 255, 0.569) 79.17%,
+   rgba(72, 5, 125, 0.283) 95.83%
+);
+$color-ash-vacuum-background: rgba(204, 204, 204, 1);
+$color-ash-argent: rgba(192, 192, 192, 1);
+$color-ash-bright-gray: rgba(238, 238, 238, 1);
+$color-ash-cultured: rgba(246, 246, 246, 1);
+$color-ash-silver-foil: rgba(174, 174, 174, 1);
+$color-ash-dark-charcoal: rgba(49, 49, 49, 1);
+$color-ash-davys-grey: rgba(83, 83, 83, 1);
+$color-ash-platinum: rgba(232, 232, 232, 1);
+$color-ash-philippine-silver: rgba(179, 179, 179, 1);
+$color-zenith-violet-blue: rgba(63, 80, 173, 1);
+$color-zenith-nickelmist: linear-gradient(
+   to bottom,
+   rgba(127, 208, 226, 0.499) 0%,
+   rgba(67, 39, 102, 0.262) 100%
+);
+$color-zenith-skyscraper: linear-gradient(
+   202deg,
+   rgba(66, 83, 142, 0.31) -1.52%,
+   rgba(66, 83, 142, 0.31) -1.51%,
+   rgba(31, 40, 71, 0.31) 90.1%
+);
+$color-zenith-oceanfloor: linear-gradient(
+   to bottom,
+   rgba(40, 65, 128, 0.158) 2.81%,
+   rgba(26, 14, 52, 0.102) 100%
+);
+$color-zenith-independence: rgba(66, 73, 116, 1);
+$color-zenith-vista-blue: rgba(140, 142, 235, 1);
+$color-zenith-diamond: rgba(189, 223, 255, 1);
+$color-zenith-nocturne: linear-gradient(167deg, #011036 2.81%, #09001d 100%);
+$color-zenith-ucla-blue: rgba(84, 104, 143, 1);
+$color-zenith-alice-blue: rgba(233, 244, 255, 1);
+
+$color-nectar-carnation-pink: rgba(251, 164, 208, 1);
+$color-nectar-byzantine: rgba(208, 27, 179, 1);
+$color-nectar-persian-pink: rgb(241, 120, 182);
+$color-nectar-blossom: linear-gradient(
+   to bottom,
+   rgba(249, 177, 255, 0.976) 0%,
+   rgba(218, 54, 138, 0.854) 100%
+);
+$color-nectar-prussian-blue: rgba(1, 50, 85, 1);
+$color-nectar-topaz: rgba(255, 205, 130, 1);
+$color-nectar-midnight-green: rgba(0, 66, 81, 1);
+$color-nectar-lavender-blue: rgb(185, 209, 255);
+$color-nectar-eagle-green: rgb(1, 86, 105);
+
+$color-nectar-desktop-screen: linear-gradient(
+   to bottom,
+   rgba(103, 213, 237, 0.403) 0%,
+   rgba(255, 255, 255, 1) 36.46%
+);
+
+$color-chaos-circus: linear-gradient(
+   to bottom,
+   rgba(128, 0, 255, 0.5) 0%,
+   rgba(0, 224, 255, 0) 25%,
+   rgba(0, 255, 87, 0) 50%,
+   rgba(255, 243, 134, 1) 79.69%,
+   rgba(255, 255, 0, 1) 100%
+);
+$color-chaos-vertigo: linear-gradient(
+   to bottom,
+   rgba(255, 150, 90, 1) 0%,
+   rgba(202, 90, 255, 0.793) 25%,
+   rgba(232, 255, 90, 0.91) 50%,
+   rgba(133, 255, 90, 0.522) 69.27%,
+   rgba(255, 90, 119, 1) 76.04%
+);
+$color-chaos-crayola-red: #f4264a;
+$color-chaos-yellow: rgb(255, 255, 0);
+
+@mixin text-style-nectar-mobile-body-text() {
+   font-size: 13px;
+   font-family: "HelveticaNeue";
+   font-weight: 500;
+   font-style: normal;
+   line-height: 23px;
+   text-decoration: none;
+   text-transform: none;
+}
+@mixin text-style-nectar-mobile-subheading() {
+   font-size: 24px;
+   font-family: "Syncopate";
+   font-weight: 700;
+   font-style: normal;
+   text-decoration: none;
+   text-transform: none;
+}
+@mixin text-style-nectar-tab-body-text() {
+   font-size: 20px;
+   font-family: "HelveticaNeue";
+   font-weight: 500;
+   font-style: normal;
+   line-height: 32px;
+   text-decoration: none;
+   text-transform: none;
+}
+@mixin text-style-nectar-tab-home-heading() {
+   font-size: 56.869998931884766px;
+   font-family: "Syncopate";
+   font-weight: 700;
+   font-style: normal;
+   text-decoration: none;
+   text-transform: none;
+}
+@mixin text-style-nectar-tab-page-heading() {
+   font-size: 54px;
+   font-family: "Syncopate";
+   font-weight: 700;
+   font-style: normal;
+   text-decoration: underline;
+   text-transform: none;
+}
+@mixin text-style-nectar-tab-hero-text() {
+   font-size: 62.87234115600586px;
+   font-family: "Syncopate";
+   font-weight: 700;
+   font-style: normal;
+   text-decoration: none;
+   text-transform: none;
+}
+@mixin text-style-nectar-tab-subheading() {
+   font-size: 31px;
+   font-family: "Syncopate";
+   font-weight: 700;
+   font-style: normal;
+   text-decoration: none;
+   text-transform: none;
+}
+@mixin text-style-nectar-desktop-body-text() {
+   font-size: 22px;
+   font-family: "HelveticaNeue";
+   font-weight: 500;
+   font-style: normal;
+   line-height: 37px;
+   text-decoration: none;
+   text-transform: none;
+}
+@mixin text-style-nectar-desktop-hero-text() {
+   font-size: 115.87000274658203px;
+   font-family: "Syncopate";
+   font-weight: 700;
+   font-style: normal;
+   text-decoration: none;
+   text-transform: none;
+}
+@mixin text-style-nectar-desktop-home-heading() {
+   font-size: 89px;
+   font-family: "Syncopate";
+   font-weight: 700;
+   font-style: normal;
+   text-decoration: none;
+   text-transform: none;
+}
+@mixin text-style-nectar-desktop-page-heading() {
+   font-size: 84px;
+   font-family: "Syncopate";
+   font-weight: 700;
+   font-style: normal;
+   text-decoration: underline;
+   text-transform: none;
+}
+@mixin text-style-nectar-desktop-subheading() {
+   font-size: 45px;
+   font-family: "Syncopate";
+   font-weight: 700;
+   font-style: normal;
+   text-decoration: none;
+   text-transform: none;
+}
+@mixin effect-style-screen-depth() {
+   box-shadow: -8px 8px 16px rgba(0, 0, 0, 0.15);
+}
+@mixin effect-style-logo-depth() {
+   box-shadow: inset 6px 5px 4px rgba(0, 0, 0, 0.35);
+}
+@mixin effect-style-slice-shadow() {
+   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+}
+@mixin effect-style-very-subtle-shadow() {
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+@mixin effect-style-paragon-depth() {
+   box-shadow: inset 14px 11px 4px rgba(0, 30, 136, 0.76);
+}
+@mixin effect-style-paragon-glow() {
+   box-shadow: 0px 0px 82px rgba(36, 0, 255, 0.42);
+   backdrop-filter: blur(16px);
+}
+@mixin effect-style-paragon-glow() {
+   box-shadow: 0px 0px 82px rgba(36, 0, 255, 0.42);
+   backdrop-filter: blur(16px);
+}
+
+@mixin inline-padding($padding: number) {
+   padding-left: $padding;
+   padding-right: $padding;
+}
+
+@mixin normal-transition-speed {
+   transition-duration: 400ms;
+   @media (prefers-reduced-motion) {
+      transition-duration: 0ms;
+   }
+}

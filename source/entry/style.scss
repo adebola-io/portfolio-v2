@@ -1,0 +1,297 @@
+@import "../styles/base";
+
+$smol-screen-width: 359px;
+
+html,
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+}
+body {
+   margin: 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 0.9375rem;
+   @include normal-transition-speed;
+}
+
+@mixin slide-up($variant-name, $index: 0, $first-frame: 0%) {
+   @media (aspect-ratio >= 0.8) {
+      animation: $variant-name calc(500ms + ($index * 100ms));
+      @keyframes #{$variant-name} {
+         #{$first-frame} {
+            opacity: 0;
+            transform: translateY(20%);
+         }
+      }
+   }
+}
+
+.bg-layers {
+   position: fixed;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   @include hide-in-landscape;
+   .bg-layer {
+      position: absolute;
+      opacity: 0;
+      @include fill;
+      @include normal-transition-speed;
+      &.ash {
+         background: $color-ash-vacuum-background;
+      }
+      &.nectar {
+         background: $color-nectar-eagle-green;
+      }
+      &.zenith {
+         background: $color-zenith-nocturne;
+      }
+      &.chaos {
+         background: $color-black;
+      }
+   }
+}
+
+.variant-list-container {
+   @media (aspect-ratio < 0.8) {
+      position: relative;
+      width: 100vw;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      padding-top: 90px;
+      padding-bottom: 90px;
+   }
+}
+
+.variant-list-container::-webkit-scrollbar {
+   display: none;
+}
+
+.variant-list {
+   position: relative;
+   display: flex;
+   align-items: center;
+   width: 380vw;
+   @include inline-padding(10vw);
+   @media (aspect-ratio > 0.6) and (aspect-ratio < 0.8) {
+      @include inline-padding(20vw);
+   }
+   @media (aspect-ratio >= 0.8) {
+      width: 100vw;
+      height: 100vh;
+      transform: none !important;
+      @include inline-padding(0);
+   }
+   @include normal-transition-speed;
+}
+
+.variant {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   // gap: 0.9375rem;
+   text-align: center;
+   font-family: "Poppins";
+   font-size: 0.8125rem;
+   @media (min-width: 720px) and (aspect-ratio < 0.8) {
+      font-size: 1.5rem;
+   }
+   @media (aspect-ratio >= 0.8) {
+      position: absolute;
+      height: 100vh;
+      width: 25vw;
+      @include normal-transition-speed;
+      filter: brightness(0.6);
+      &:hover {
+         --card-transform: scale(0.9);
+         filter: brightness(1);
+      }
+   }
+   font-weight: 400;
+
+   .variant-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70vw; // Values for a prominent card...
+      height: auto;
+      aspect-ratio: 0.75;
+      @media (aspect-ratio > 0.6) and (aspect-ratio < 0.8) {
+         width: 50vw;
+      }
+      transform: scale(0.8); // ...shrunken.
+      cursor: pointer;
+      border: 2px solid;
+      border-radius: 0.51419rem;
+      @include effect-style-screen-depth;
+      @include normal-transition-speed;
+      @media (aspect-ratio >= 0.8) {
+         width: 19vw;
+         transform: none;
+         border-radius: 1.3rem;
+         transform: var(--card-transform);
+      }
+      img {
+         width: 35%;
+         @include normal-transition-speed;
+      }
+      svg {
+         @include normal-transition-speed;
+         transform: scale(0.7);
+         @media (max-width: $smol-screen-width) {
+            transform: scale(0.5);
+         }
+      }
+   }
+   .variant-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 150px;
+      opacity: 0;
+      @media (aspect-ratio >= 0.8) {
+         opacity: initial;
+      }
+      @include normal-transition-speed;
+      .variant-name {
+         margin: 0;
+         font-size: 2.59288rem;
+         font-weight: 700;
+         text-decoration-line: underline;
+      }
+      .variant-content {
+         width: 60vw;
+         text-wrap: balance;
+         @media (aspect-ratio >= 0.8) {
+            width: 15vw;
+         }
+      }
+      .variant-link {
+         text-decoration: none;
+         .variant-link-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 8.8125rem;
+            height: 2.3125rem;
+            padding: 0.625rem;
+            gap: 0.625rem;
+            border-radius: 0.25rem;
+            border: none;
+            color: $color-white;
+            font-size: 0.875rem;
+            font-weight: 400;
+            cursor: pointer;
+            @include normal-transition-speed;
+            &:hover {
+               transform: scale(1.03);
+            }
+         }
+      }
+   }
+
+   // Main card.
+   &.prominent {
+      .variant-card {
+         // only for mobile.
+         @media (aspect-ratio < 0.8) {
+            transform: none;
+            padding: 0.625rem;
+            gap: 0.625rem;
+            border-radius: 0.75rem;
+            svg {
+               transform: none;
+               @media (max-width: $smol-screen-width) {
+                  transform: scale(0.7);
+               }
+            }
+         }
+      }
+      .variant-details {
+         opacity: 1;
+      }
+   }
+
+   // Themes
+   &#ash {
+      color: $color-black;
+      @media (aspect-ratio >= 0.8) {
+         left: 0;
+         background: $color-ash-vacuum-background;
+      }
+      & .variant-card {
+         border-color: $color-ash-dark-charcoal;
+         background-color: $color-ash-dark-charcoal;
+         color: $color-white;
+         @include slide-up(ash-card, 1, 0%);
+      }
+      & .variant-details {
+         color: $color-ash-dark-charcoal;
+         .variant-link-button {
+            background: $color-ash-dark-charcoal;
+            box-shadow: -2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+         }
+      }
+   }
+   &#nectar {
+      color: $color-nectar-lavender-blue;
+      @media (aspect-ratio >= 0.8) {
+         left: 25%;
+         background: $color-nectar-eagle-green;
+      }
+      & .variant-card {
+         color: $color-nectar-persian-pink;
+         border-color: $color-white;
+         background-color: #002139;
+         @include slide-up(ash-card, 1, (0%, 15%));
+      }
+   }
+   &#zenith {
+      color: $color-white;
+      @media (aspect-ratio >= 0.8) {
+         left: 50%;
+         background: $color-zenith-nocturne;
+      }
+      & .variant-card {
+         color: $color-nectar-lavender-blue;
+         border: 5px solid $color-zenith-vista-blue;
+         background: $color-zenith-skyscraper;
+         @include effect-style-paragon-glow;
+         backdrop-filter: blur(8px);
+         @include slide-up(zenith-card, 3, (0%, 30%));
+      }
+   }
+   &#chaos {
+      color: $color-white;
+      @media (aspect-ratio >= 0.8) {
+         right: 0;
+         background-color: $color-black;
+      }
+      & .variant-card {
+         color: $color-chaos-yellow;
+         border: 5px solid $color-chaos-crayola-red;
+         background: $color-black;
+         @include slide-up(chaos-card, 4, (0%, 45%));
+      }
+   }
+}
+
+.controls {
+   position: absolute;
+   bottom: 13vh;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 88%;
+   @include inline-padding(6%);
+   @include hide-in-landscape;
+   svg {
+      cursor: pointer;
+   }
+}

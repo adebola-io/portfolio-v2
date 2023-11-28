@@ -1,0 +1,20 @@
+{
+   "compilerOptions": {
+      "lib": ["ES2015", "DOM"],
+      "module": "esnext",
+      "target": "esnext",
+      "checkJs": true,
+      "moduleDetection": "auto",
+      "moduleResolution": "Bundler",
+      "allowImportingTsExtensions": true,
+      "noEmit": true,
+      "composite": true,
+      "strict": true,
+      "downlevelIteration": true,
+      "skipLibCheck": true,
+      "jsx": "react-jsx",
+      "allowSyntheticDefaultImports": true,
+      "forceConsistentCasingInFileNames": true,
+      "allowJs": true
+   }
+}
