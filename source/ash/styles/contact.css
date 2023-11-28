@@ -19,3 +19,44 @@
 #email-img {
    height: 13.5vw;
 }
+
+@media (aspect-ratio >= 0.6) {
+   .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      width: 70vw;
+      padding: 0 15vw;
+   }
+   .contact-icon-links {
+      justify-content: space-around;
+      column-gap: 8vw;
+      row-gap: 5vw;
+      flex-wrap: wrap;
+   }
+   .contact-icon-links img {
+      width: 19vw;
+      height: auto;
+   }
+   #email-img {
+      height: auto;
+   }
+}
+
+@media (aspect-ratio >= 0.8) {
+   .content {
+      margin-bottom: auto;
+   }
+   .contact-icon-links {
+      width: 100%;
+      flex-wrap: nowrap;
+      justify-content: space-around;
+      gap: 0;
+      padding: 4vh 0;
+   }
+   .contact-icon-links img {
+      width: 18vh;
+   }
+}
