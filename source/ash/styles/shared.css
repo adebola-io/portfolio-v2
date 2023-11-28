@@ -18,6 +18,16 @@ body {
    font-size: 2.5vw;
    font-family: "Source Code Pro", monospace;
 }
+@supports (place-items: center) {
+   body {
+      display: grid;
+      place-items: center;
+   }
+}
+body {
+   height: 100vh;
+   width: 100vw;
+}
 
 /* Navigation bar */
 .navigation-bar {
@@ -86,6 +96,15 @@ body {
    color: white;
    background-color: #000;
 }
+.big-text {
+   text-decoration: underline;
+   font-family: "Sometype Mono", monospace;
+   font-size: 9vw;
+   margin: 0;
+}
+.normal-text {
+   font-family: "Source Code Pro", monospace;
+}
 
 /* For Desktop screens and landscape mode. */
 @media (aspect-ratio >= 0.8) {
@@ -94,6 +113,12 @@ body {
    }
    .button {
       border-width: 3px;
+   }
+   .big-text {
+      font-size: 4.5vw;
+   }
+   .normal-text {
+      font-size: 2vh;
    }
    .background-overlay-image {
       width: 40%;

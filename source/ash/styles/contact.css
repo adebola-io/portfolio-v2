@@ -1,0 +1,21 @@
+.content {
+   padding: 0 8vw;
+}
+.info {
+   width: 90%;
+   margin: 3vh 0;
+}
+.contact-icon-links {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-top: 0.3vh solid #000;
+   border-bottom: 0.3vh solid #000;
+   padding: 2vh 0;
+}
+.contact-icon-links img {
+   height: 15vw;
+}
+#email-img {
+   height: 13.5vw;
+}
