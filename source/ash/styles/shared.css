@@ -19,7 +19,7 @@ li::marker {
    display: flex;
    justify-content: center;
    align-items: center;
-   width: 80%;
+   width: 70%;
    gap: 2.9375rem;
    border-width: 0.9vw;
    border-style: solid;
@@ -34,15 +34,15 @@ li::marker {
    padding: 0;
 }
 .navbar-link {
-   padding: 10px;
+   padding: 5px;
 }
 .navbar-link.selected {
-   border-width: 0 0 4px 0;
+   border-width: 0 0 0.3vh 0;
    border-color: #000;
    border-style: solid;
 }
 .navbar-icon-image {
-   height: 3vh;
+   height: 2vh;
 }
 
 /* Overlay */
@@ -67,8 +67,12 @@ li::marker {
    border-width: 0.6vw;
    border-style: solid;
    border-color: #000;
-   background: #fff;
+   background-color: #fff;
    font-size: 3.2vw;
    font-family: "Sometype Mono", monospace;
    font-weight: 700;
+}
+.button:hover {
+   color: white;
+   background-color: #000;
 }
