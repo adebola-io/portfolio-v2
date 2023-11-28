@@ -78,6 +78,9 @@ body {
    align-items: center;
    width: 380vw;
    @include inline-padding(10vw);
+   @media (aspect-ratio > 0.6) and (aspect-ratio < 0.8) {
+      @include inline-padding(20vw);
+   }
    @media (aspect-ratio >= 0.8) {
       width: 100vw;
       height: 100vh;
@@ -92,7 +95,7 @@ body {
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   gap: 0.9375rem;
+   // gap: 0.9375rem;
    text-align: center;
    font-family: "Poppins";
    font-size: 0.8125rem;
@@ -119,6 +122,9 @@ body {
       width: 70vw; // Values for a prominent card...
       height: auto;
       aspect-ratio: 0.75;
+      @media (aspect-ratio > 0.6) and (aspect-ratio < 0.8) {
+         width: 50vw;
+      }
       transform: scale(0.8); // ...shrunken.
       cursor: pointer;
       border: 2px solid;
@@ -131,6 +137,10 @@ body {
          border-radius: 1.3rem;
          transform: var(--card-transform);
       }
+      img {
+         width: 35%;
+         @include normal-transition-speed;
+      }
       svg {
          @include normal-transition-speed;
          transform: scale(0.7);
@@ -140,12 +150,50 @@ body {
       }
    }
    .variant-details {
-      height: 46px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 150px;
       opacity: 0;
       @media (aspect-ratio >= 0.8) {
          opacity: initial;
       }
       @include normal-transition-speed;
+      .variant-name {
+         margin: 0;
+         font-size: 2.59288rem;
+         font-weight: 700;
+         text-decoration-line: underline;
+      }
+      .variant-content {
+         width: 60vw;
+         text-wrap: balance;
+         @media (aspect-ratio >= 0.8) {
+            width: 15vw;
+         }
+      }
+      .variant-link {
+         text-decoration: none;
+         .variant-link-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 8.8125rem;
+            height: 2.3125rem;
+            padding: 0.625rem;
+            gap: 0.625rem;
+            border-radius: 0.25rem;
+            border: none;
+            color: $color-white;
+            font-size: 0.875rem;
+            font-weight: 400;
+            cursor: pointer;
+            @include normal-transition-speed;
+            &:hover {
+               transform: scale(1.03);
+            }
+         }
+      }
    }
 
    // Main card.
@@ -166,7 +214,6 @@ body {
          }
       }
       .variant-details {
-         display: block;
          opacity: 1;
       }
    }
@@ -183,6 +230,13 @@ body {
          background-color: $color-ash-dark-charcoal;
          color: $color-white;
          @include slide-up(ash-card, 1, 0%);
+      }
+      & .variant-details {
+         color: $color-ash-dark-charcoal;
+         .variant-link-button {
+            background: $color-ash-dark-charcoal;
+            box-shadow: -2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+         }
       }
    }
    &#nectar {

@@ -69,6 +69,7 @@ class App {
    state = {
       prominent: 0,
    } as State;
+   variantShift = 70;
 
    /** Starts the application. */
    run() {
@@ -77,6 +78,20 @@ class App {
          this.previous.bind(this)
       );
       this.dom.controls.forward.addEventListener("click", this.next.bind(this));
+      let aspectRatio = innerWidth / innerHeight;
+      if (aspectRatio > 0.6 && aspectRatio < 0.8) {
+         this.variantShift = 55;
+      } else {
+         this.variantShift = 70;
+      }
+      addEventListener("resize", () => {
+         let aspectRatio = innerWidth / innerHeight;
+         if (aspectRatio > 0.6 && aspectRatio < 0.8) {
+            this.variantShift = 55;
+         } else {
+            this.variantShift = 70;
+         }
+      });
 
       //    // Handle resizing to permit actions only in lansdcape.
 
@@ -146,7 +161,7 @@ class App {
       });
       // Shift variant list.
       variantContainers.inner.style.transform = `translateX(-${
-         this.state.prominent * 70
+         this.state.prominent * this.variantShift
       }vw)`;
       // Change background color.
       Object.values(backgrounds).forEach((background, index) => {
