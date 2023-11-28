@@ -12,6 +12,13 @@ li::marker {
    display: none;
 }
 
+body {
+   margin: 0;
+   background-color: #f6f6f6;
+   font-size: 2.5vw;
+   font-family: "Source Code Pro", monospace;
+}
+
 /* Navigation bar */
 .navigation-bar {
    position: fixed;
@@ -40,6 +47,9 @@ li::marker {
    border-width: 0 0 0.3vh 0;
    border-color: #000;
    border-style: solid;
+}
+.navbar-link-text {
+   display: none;
 }
 .navbar-icon-image {
    height: 2vh;
@@ -75,4 +85,44 @@ li::marker {
 .button:hover {
    color: white;
    background-color: #000;
+}
+
+/* For Desktop screens and landscape mode. */
+@media (aspect-ratio >= 0.8) {
+   body {
+      font-size: 1.2vw;
+   }
+   .button {
+      border-width: 3px;
+   }
+   .background-overlay-image {
+      width: 40%;
+   }
+   .navigation-bar {
+      position: relative;
+      justify-content: start;
+      width: 100%;
+      margin-bottom: auto;
+      top: 0;
+      bottom: auto;
+      border-width: 0;
+      border-bottom: 2px solid #000;
+      background-color: #c0c0c0;
+   }
+   .navbar-icon-image {
+      display: none;
+   }
+   .navbar-link.selected {
+      font-weight: bold;
+      border-width: 0px;
+   }
+   .navbar-link-text {
+      display: block;
+      font-size: 2vh;
+   }
+   .navbar-menu {
+      width: fit-content;
+      gap: 10px;
+      margin: 2vh 0 2vh 5vh;
+   }
 }

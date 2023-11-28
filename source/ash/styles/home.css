@@ -8,9 +8,6 @@
 body {
    height: 100vh;
    width: 100vw;
-   margin: 0;
-   background-color: #f6f6f6;
-   font-size: 2.5vw;
 }
 .center-box {
    width: 72vw;
@@ -66,7 +63,6 @@ body {
 }
 .info-about-me {
    color: #000;
-   text-align: right;
    font-family: "Source Code Pro", monospace;
 }
 
@@ -79,4 +75,41 @@ body {
 .button-row > * {
    padding: 1.5vh 12%;
    font-size: 3.2vw;
+}
+
+@media (aspect-ratio >= 0.8) {
+   body {
+      display: flex;
+      flex-direction: column;
+   }
+   #top-line-box {
+      margin-bottom: 10vh;
+   }
+   #bottom-line-box {
+      margin-top: 10vh;
+   }
+   .center-box {
+      width: 60%;
+      margin-bottom: auto;
+      padding-left: 0;
+      padding-right: 0;
+   }
+   .content {
+      align-items: center;
+      text-align: center;
+   }
+   .big-text {
+      font-size: 4.5vw;
+   }
+   .info-about-me {
+      width: 70%;
+      font-size: 2vh;
+   }
+   .button-row {
+      width: 50%;
+   }
+   .button-row > * {
+      padding: 1.5vh 10%;
+      font-size: 1.2vw;
+   }
 }
