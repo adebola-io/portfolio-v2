@@ -30,4 +30,4 @@ The working design for this project can be viewed [here](https://www.figma.com/f
 
 ## 🚀 deployment.
 
-The container site is deployed on Vercel here.
+The container site is deployed on Vercel [here](https://adebola-io.vercel.app).
