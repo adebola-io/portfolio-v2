@@ -13,7 +13,7 @@ var PageData = map[string]*shared.PageProps{
 		Description:   "Creative programmer and web developer living in Lagos, Nigeria. I have a passion for creating accessible, beautiful and all-round amazing software interfaces.",
 		OgDescription: "Creative programmer and web developer living in Lagos, Nigeria.",
 		Stylesheet:    "/styles/home.css",
-		Url:           "https://adebola-io-ash.vercel.app",
+		Url:           shared.BASE_URL,
 	},
 	"static/contact.html": {
 		Name:          "Contact",
@@ -21,7 +21,7 @@ var PageData = map[string]*shared.PageProps{
 		Description:   "Creative programmer and web developer living in Lagos, Nigeria. I have a passion for creating accessible, beautiful and all-round amazing software interfaces.",
 		OgDescription: "Ways in which you can contact me.",
 		Stylesheet:    "/styles/contact.css",
-		Url:           "https://adebola-io-ash.vercel.app/contact.html",
+		Url:           shared.BASE_URL + "/contact.html",
 	},
 	"static/library.html": {
 		Name:          "Library",
@@ -29,7 +29,7 @@ var PageData = map[string]*shared.PageProps{
 		Description:   "Creative programmer and web developer living in Lagos, Nigeria. I have a passion for creating accessible, beautiful and all-round amazing software interfaces.",
 		OgDescription: "A list of some of my works.",
 		Stylesheet:    "/styles/library.css",
-		Url:           "https://adebola-io-ash.vercel.app/library.html",
+		Url:           shared.BASE_URL + "/library.html",
 		Content: func() template.HTML {
 			str := ""
 			str += components.WorksList(GetWorks())

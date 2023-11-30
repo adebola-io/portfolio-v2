@@ -34,11 +34,11 @@ func Head(props *shared.PageProps) string {
       />
       <meta
          property="og:image"
-         content="https://adebola-io-ash.vercel.app/images/ash-thumbnail.jpg"
+         content="` + shared.BASE_URL + `/images/ash-thumbnail.jpg"
       />
       <meta
          property="twitter:image"
-         content="https://adebola-io-ash.vercel.app/images/ash-thumbnail.jpg"
+         content="` + shared.BASE_URL + `/images/ash-thumbnail.jpg"
       />
       <meta property="og:type" content="website" />
    </head>

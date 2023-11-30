@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+var BASE_URL = "https://adebola-io-ash.uw.r.appspot.com"
+
 type PortfolioWorkView struct {
 	Svg    string
 	Banner string
