@@ -3,7 +3,6 @@ package main
 import (
 	"ash/components"
 	"ash/data"
-	"fmt"
 	"html/template"
 	"net/http"
 )
@@ -31,10 +30,6 @@ func getPageRenderData(page *string) PageRenderData {
 
 // Renders an HTML page template from the /static directory.
 func RenderPage(pageName string, writer http.ResponseWriter, request *http.Request) {
-	_, err := fmt.Printf("Rendering page %s\n", pageName)
-	if err != nil {
-		panic(err)
-	}
 	renderData := getPageRenderData(&pageName)
 	tmpl, err := template.ParseFiles(pageName)
 	if err != nil {

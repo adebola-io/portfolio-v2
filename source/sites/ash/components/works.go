@@ -1,6 +1,9 @@
 package components
 
-import "ash/shared"
+import (
+	"ash/shared"
+	"strconv"
+)
 
 // Html Component to encapsulate the list of components.
 func WorksList(list *[]shared.PortfolioWork) string {
@@ -8,12 +11,44 @@ func WorksList(list *[]shared.PortfolioWork) string {
 	for _, work := range *list {
 		str += WorkCard(&work)
 	}
-	return str
+	return `<ul class="works-list">` + str + `</ul>`
 }
 
 // Html Component for a singular portfolio work.
 func WorkCard(work *shared.PortfolioWork) string {
-	str := `
+	ongoingBadge := ""
+	if work.IsOngoing {
+		ongoingBadge = `<div class="ongoing-badge">Ongoing</div>`
+	}
+	svg := ""
+	if work.View.Banner == "" {
+		svg += `<img class="work-svg-icon" style="height: {{.View.SvgWidth}}" src="{{.View.Svg}}" alt="Svg icon"/>`
+	}
+	themeColor := "rgb("
+	for i, colorComponent := range work.View.Theme {
+		themeColor += strconv.Itoa(colorComponent)
+		if i < 2 {
+			themeColor += ","
+		}
+	}
+	themeColor += ")"
+	base := `
+	<li class="card">
+		<a href="{{.Links.Base}}" target="_blank" rel="noopener noreferrer">
+			<div class="card-banner" style="
+				background-image: url({{.View.Banner}});
+				background-color: ` + themeColor + `
+			">
+				` + svg + ongoingBadge + `
+			</div>
+			<h2 class="big-text work-name">{{.Name}}</h2>
+			<p class="work-brief">{{.Info.Brief}}</p>
+		</a>
+	</li>
 	`
-	return str
+	str, err := shared.RenderStringWithData(base, work)
+	if err != nil {
+		panic(err)
+	}
+	return *str
 }

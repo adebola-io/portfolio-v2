@@ -6,11 +6,13 @@ import (
 )
 
 var BASE_URL = "https://adebola-io-ash.uw.r.appspot.com"
+var BASE_URL_DEV = "http://localhost:8080"
 
 type PortfolioWorkView struct {
-	Svg    string
-	Banner string
-	Theme  []int
+	Svg      string
+	SvgWidth string
+	Banner   string
+	Theme    [3]int
 }
 
 type PortfolioWorkInfo struct {
@@ -19,12 +21,21 @@ type PortfolioWorkInfo struct {
 	Full    string
 }
 
+type PortfolioLinks struct {
+	Base   string
+	Github string
+	Docs   string
+	Live   string
+}
+
 type PortfolioWork struct {
-	Id   string
-	Name string
-	Type string
-	View PortfolioWorkView
-	Info PortfolioWorkInfo
+	Id        string
+	Name      string
+	Type      string
+	IsOngoing bool
+	Links     PortfolioLinks
+	View      PortfolioWorkView
+	Info      PortfolioWorkInfo
 }
 
 // Details for the <head> tag for each page.
@@ -42,7 +53,7 @@ type PageProps struct {
 // into another string using the given data.
 func RenderStringWithData(str string, data any) (*string, error) {
 	builder := &strings.Builder{}
-	tmpl := template.New("head")
+	tmpl := template.New("rendered")
 	tmpl, err := tmpl.Parse(str)
 	if err != nil {
 		return nil, err

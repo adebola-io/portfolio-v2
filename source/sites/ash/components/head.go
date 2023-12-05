@@ -24,6 +24,7 @@ func Head(props *shared.PageProps) string {
          rel="stylesheet"
       />
       <link rel="stylesheet" href="./styles/shared.css" />
+      <link rel="stylesheet" href="./styles/animations.css" />
       <link rel="stylesheet" href="{{.Stylesheet}}" />
       <title>{{.Title}}</title>
       <meta property="og:url" content="{{.Url}}" />

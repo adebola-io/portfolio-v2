@@ -1,2 +1,2 @@
-# Use a custom runtime
 runtime: go121
+secure: always
