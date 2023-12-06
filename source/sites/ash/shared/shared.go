@@ -36,6 +36,7 @@ type PortfolioWork struct {
 	Links     PortfolioLinks
 	View      PortfolioWorkView
 	Info      PortfolioWorkInfo
+	Tags      []string
 }
 
 // Details for the <head> tag for each page.

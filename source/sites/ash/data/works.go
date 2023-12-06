@@ -25,6 +25,7 @@ var PortfolioWorks = []shared.PortfolioWork{
 			Docs:   "https://whirlwind-lang.vercel.app",
 			Live:   "https://whirlwind-lang.vercel.app",
 		},
+		Tags: []string{"Rust", "Tokio", "Compilers", "Language Servers", "Static Analysis"},
 	},
 	{
 		Id:   "00002",
@@ -32,7 +33,7 @@ var PortfolioWorks = []shared.PortfolioWork{
 		Type: "app",
 		View: shared.PortfolioWorkView{
 			Svg:      shared.BASE_URL_DEV + "/images/spry.svg",
-			SvgWidth: "55%",
+			SvgWidth: "50%",
 			// Banner: shared.BASE_URL_DEV + "/images/spry.png",
 			Banner: "",
 			Theme:  [3]int{97, 0, 94},
@@ -47,6 +48,7 @@ var PortfolioWorks = []shared.PortfolioWork{
 			Github: "https://github.com/adebola-io/spry",
 			Live:   "https://spry-store.vercel.app",
 		},
+		Tags: []string{"Nuxt", "Vue", "Typescript", "Ecommerce", "Tailwind", "Figma"},
 	},
 	{
 		Id:   "00003",
@@ -61,7 +63,7 @@ var PortfolioWorks = []shared.PortfolioWork{
 		},
 		Info: shared.PortfolioWorkInfo{
 			Tagline: "A simple, interactive trivia quiz game built in React.",
-			Brief:   "Quizwiz is a web-based trivia game.",
+			Brief:   "Quizwiz is a simple, interactive, web-based trivia game. It is complete with authentication, categorized quizzes and a leaderboard.",
 			Full:    "",
 		},
 		Links: shared.PortfolioLinks{
@@ -69,6 +71,30 @@ var PortfolioWorks = []shared.PortfolioWork{
 			Github: "https://github.com/adebola-io/quizwiz",
 			Live:   "http://quizwiz-game.vercel.app",
 		},
+		Tags: []string{"React", "Figma", "Node", "Typescript", "Tailwind"},
+	},
+	{
+		Id:   "00009",
+		Name: "Ash",
+		Type: "app",
+		View: shared.PortfolioWorkView{
+			Svg:      shared.BASE_URL_DEV + "/images/sefunmi-ash-background-logo.png",
+			SvgWidth: "51%",
+			// Banner: shared.BASE_URL_DEV + "/images/cadence.png",
+			Banner: "",
+			Theme:  [3]int{117, 117, 117},
+		},
+		Info: shared.PortfolioWorkInfo{
+			Tagline: "A simple, bare minimum portfolio.",
+			Brief:   "The site you're on right now. A monochrome, low-risk portfolio rendered using HTML, CSS and Go templates.",
+			Full:    "",
+		},
+		Links: shared.PortfolioLinks{
+			Base:   "https://adebola-io-ash.ur.w.appspot.com",
+			Github: "https://github.com/adebola-io/portfolio-v2",
+			Live:   "https://adebola-io-ash.ur.w.appspot.com",
+		},
+		Tags: []string{"Go", "Bun", "Figma", "HTML", "CSS"},
 	},
 	{
 		Id:   "00004",
@@ -76,7 +102,7 @@ var PortfolioWorks = []shared.PortfolioWork{
 		Type: "other",
 		View: shared.PortfolioWorkView{
 			Svg:      shared.BASE_URL_DEV + "/images/siphon.png",
-			SvgWidth: "91%",
+			SvgWidth: "86%",
 			// Banner: shared.BASE_URL_DEV + "/images/quizwiz.png",
 			Banner: "",
 			Theme:  [3]int{143, 114, 102},
@@ -91,6 +117,7 @@ var PortfolioWorks = []shared.PortfolioWork{
 			Github: "https://github.com/adebola-io/siphon",
 			Live:   "https://www.npmjs.com/package/siphon-cli",
 		},
+		Tags: []string{"Typescript", "Node", "NPM", "HTML", "CSS", "Compilers", "Static Analysis"},
 	},
 	{
 		Id:   "00005",
@@ -109,10 +136,11 @@ var PortfolioWorks = []shared.PortfolioWork{
 			Full:    "",
 		},
 		Links: shared.PortfolioLinks{
-			Base:   "https://spry-store.vercel.app",
+			Base:   "https://cadence-logistics.vercel.app",
 			Github: "https://github.com/adebola-io/spry",
-			Live:   "https://spry-store.vercel.app",
+			Live:   "https://cadence-logistics.vercel.app",
 		},
+		Tags: []string{"Vue", "Typescript", "GSAP", "CSS", "Figma"},
 	},
 	{
 		Id:   "00006",
@@ -135,6 +163,7 @@ var PortfolioWorks = []shared.PortfolioWork{
 			Github: "https://github.com/adebola-io/portfolio",
 			Live:   "https://adebola-xyz.netlify.app/",
 		},
+		Tags: []string{"React", "SCSS", "Javascript"},
 	},
 	{
 		Id:   "00007",
@@ -149,7 +178,7 @@ var PortfolioWorks = []shared.PortfolioWork{
 		},
 		Info: shared.PortfolioWorkInfo{
 			Tagline: "A concept landing page for a space agency.",
-			Brief:   "Sojourner",
+			Brief:   "Sojourner is a website consept for a company specializing in space tourism and interstellar travel.",
 			Full:    "",
 		},
 		Links: shared.PortfolioLinks{
@@ -157,21 +186,22 @@ var PortfolioWorks = []shared.PortfolioWork{
 			Github: "https://github.com/adebola-io/sojourner",
 			Live:   "https://sojourner.netlify.app/",
 		},
+		Tags: []string{"Vue", "Javascript", "CSS"},
 	},
 	{
 		Id:   "00008",
 		Name: "Studybud",
 		Type: "app",
 		View: shared.PortfolioWorkView{
-			Svg:      shared.BASE_URL_DEV + "/images/studybud.png",
+			Svg:      shared.BASE_URL_DEV + "/images/studybud.svg",
 			SvgWidth: "80%",
 			// Banner: shared.BASE_URL_DEV + "/images/cadence.png",
 			Banner: "",
-			Theme:  [3]int{2, 2, 2},
+			Theme:  [3]int{7, 0, 69},
 		},
 		Info: shared.PortfolioWorkInfo{
-			Tagline: "A concept landing page for a space agency.",
-			Brief:   "Sojourner",
+			Tagline: "An AI study tool",
+			Brief:   "Studybud is a web-based tool for generating summaries and quizzes using artificial intelligence.",
 			Full:    "",
 		},
 		Links: shared.PortfolioLinks{
@@ -179,6 +209,7 @@ var PortfolioWorks = []shared.PortfolioWork{
 			Github: "https://github.com/adebola-io/studybud",
 			Live:   "https://studybud-co.vercel.app/",
 		},
+		Tags: []string{"Svelte", "SCSS", "Javascript", "Figma"},
 	},
 }
 

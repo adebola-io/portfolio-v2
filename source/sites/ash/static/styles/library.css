@@ -32,6 +32,10 @@ body {
    font-size: inherit;
    font-family: inherit;
 }
+.work-svg-icon {
+   opacity: 0;
+   transition-duration: 300ms;
+}
 .search-bar {
    all: unset;
    width: 100%;
@@ -64,6 +68,7 @@ body {
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
+   /* filter: saturate(0) contrast(0.7); */
 }
 .ongoing-badge {
    position: absolute;
@@ -81,11 +86,111 @@ body {
    margin: 2vh 0 1vh 0;
 }
 .work-brief {
+   height: 8vh;
    font-size: 3vw;
+}
+.tag-list {
+   display: none;
+}
+@media (aspect-ratio < 0.8) and (aspect-ratio > 0.6) {
+   .card {
+      min-height: 48vh;
+   }
+   .card a {
+      height: 100%;
+      display: block;
+   }
+   .card-banner {
+      height: 29vh;
+   }
 }
 
 @media (aspect-ratio >= 0.8) {
+   .search-bar::placeholder {
+      font-size: 1vw;
+   }
+   .big-text {
+      font-size: xx-large;
+   }
+   body {
+      flex-direction: column;
+      align-items: center;
+      justify-content: unset;
+   }
+   .navigation-bar {
+      margin-bottom: 0;
+   }
+   .list-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3vh;
+   }
+   .search-bar-container {
+      height: 5vh;
+      width: 40%;
+      margin: 0;
+      padding: 0 1%;
+   }
    .content {
+      width: 94vw;
       margin-bottom: auto;
+      padding: 0;
+   }
+   .works-list {
+      display: flex;
+      justify-content: center;
+      row-gap: 2.4vh;
+      column-gap: 2vw;
+      flex-wrap: wrap;
+   }
+   .card {
+      position: relative;
+      min-height: unset;
+      width: 21.5%;
+      min-width: 300px;
+      height: 100%;
+      padding: 0.7%;
+      margin: 0;
+   }
+   .card-banner {
+      height: 12vw;
+      min-height: 220px;
+      overflow: hidden;
+   }
+   .work-name {
+      font-size: 1.5vw;
+      font-weight: bold;
+   }
+   .work-brief {
+      font-size: 9pt;
+      min-height: 2.8vw;
+      width: 100%;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 4;
+   }
+   .ongoing-badge {
+      font-size: 9pt;
+   }
+   .tag-list {
+      display: flex;
+      width: 100%;
+      overflow-x: scroll;
+      gap: 0.5vw;
+      margin-top: 1vh;
+      margin-bottom: 1vh;
+   }
+   .tag-list::-webkit-scrollbar {
+      display: none;
+   }
+   .work-tag {
+      border: 2px solid #767676;
+      padding: 0.8vh 0.8vw;
+      text-wrap: nowrap;
+      font-size: 8pt;
+      font-style: italic;
    }
 }

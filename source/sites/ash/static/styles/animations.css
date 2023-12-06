@@ -16,6 +16,11 @@
    background-color: #000;
 }
 
+.card:hover {
+   outline: 0.35vh solid;
+   transform: scale(1.01);
+}
+
 /* @media (aspect-ratio >= 0.8) {
    
 } */

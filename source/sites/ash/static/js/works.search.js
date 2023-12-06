@@ -9,7 +9,16 @@ if (searchBar) {
          let cardName = card.querySelector(".work-name");
          if (cardName) {
             let name = cardName.textContent?.toLowerCase();
-            if (name && name.startsWith(searchBar.value)) {
+            /** @type {string[]} */
+            let tags = [];
+            for (const tag of card.querySelectorAll(".work-tag")) {
+               tags.push((tag.textContent || "").toLowerCase());
+            }
+            let value = searchBar.value.toLowerCase();
+            if (
+               (name && name.startsWith(value)) ||
+               tags.some((tag) => tag.startsWith(value))
+            ) {
                card.style.display = "block";
             } else {
                card.style.display = "none";
@@ -18,3 +27,17 @@ if (searchBar) {
       }
    });
 }
+
+/** @type {NodeListOf<HTMLImageElement>} */
+const images = document.querySelectorAll(".work-svg-icon");
+images.forEach((image) => {
+   image.addEventListener("load", () => {
+      image.style.opacity = "1";
+   });
+   let wait = setInterval(() => {
+      if (image.complete) {
+         image.style.opacity = "1";
+         clearInterval(wait);
+      }
+   }, 500);
+});

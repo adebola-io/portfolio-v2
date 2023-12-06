@@ -22,7 +22,7 @@ func WorkCard(work *shared.PortfolioWork) string {
 	}
 	svg := ""
 	if work.View.Banner == "" {
-		svg += `<img class="work-svg-icon" style="height: {{.View.SvgWidth}}" src="{{.View.Svg}}" alt="Svg icon"/>`
+		svg += `<img class="work-svg-icon" loading="lazy" style="height: {{.View.SvgWidth}}" src="{{.View.Svg}}" alt="Svg icon"/>`
 	}
 	themeColor := "rgb("
 	for i, colorComponent := range work.View.Theme {
@@ -32,6 +32,10 @@ func WorkCard(work *shared.PortfolioWork) string {
 		}
 	}
 	themeColor += ")"
+	tags := ""
+	for _, tag := range work.Tags {
+		tags += Tag(tag)
+	}
 	base := `
 	<li class="card">
 		<a href="{{.Links.Base}}" target="_blank" rel="noopener noreferrer">
@@ -43,6 +47,9 @@ func WorkCard(work *shared.PortfolioWork) string {
 			</div>
 			<h2 class="big-text work-name">{{.Name}}</h2>
 			<p class="work-brief">{{.Info.Brief}}</p>
+			<div class="tag-list">
+				` + tags + `
+			</div>
 		</a>
 	</li>
 	`
@@ -51,4 +58,9 @@ func WorkCard(work *shared.PortfolioWork) string {
 		panic(err)
 	}
 	return *str
+}
+
+// Tag of a tool used to build the project.
+func Tag(tagName string) string {
+	return `<div class="work-tag">` + tagName + `</div>`
 }
