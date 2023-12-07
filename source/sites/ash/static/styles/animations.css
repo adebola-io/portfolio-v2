@@ -1,0 +1,26 @@
+.content {
+   animation: fade-in 500ms;
+}
+
+@keyframes fade-in {
+   0% {
+      opacity: 0;
+   }
+}
+
+.button {
+   transition-duration: 300ms;
+}
+.button:hover {
+   color: white;
+   background-color: #000;
+}
+
+.card:hover {
+   outline: 0.35vh solid;
+   transform: scale(1.01);
+}
+
+/* @media (aspect-ratio >= 0.8) {
+   
+} */

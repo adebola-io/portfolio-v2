@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+   {{.Head}}
+   <body>
+      {{.NavBar}}
+      <div class="content">
+         <div class="list-heading">
+            <h1 class="big-text">MY WORKS</h1>
+            <div class="search-bar-container">
+               <input
+                  type="search"
+                  placeholder="Search..."
+                  class="search-bar"
+               />
+               <img
+                  src="./svg/search.svg"
+                  class="search-icon"
+                  alt="Search Icon"
+               />
+            </div>
+         </div>
+         {{.Content}}
+      </div>
+      {{.Overlay}}
+      <script type="module" src="./js/works.search.js"></script>
+   </body>
+</html>

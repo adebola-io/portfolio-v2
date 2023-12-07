@@ -1,0 +1,52 @@
+{
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "type": "array",
+   "items": {
+      "type": "object",
+      "properties": {
+         "id": {
+            "type": "string"
+         },
+         "name": {
+            "type": "string"
+         },
+         "type": {
+            "type": "string"
+         },
+         "view": {
+            "type": "object",
+            "properties": {
+               "svg": {
+                  "type": "string"
+               },
+               "banner": {
+                  "type": "string"
+               },
+               "theme": {
+                  "type": "array",
+                  "items": {
+                     "type": "integer"
+                  }
+               }
+            },
+            "required": ["Svg", "Banner", "Theme"]
+         },
+         "info": {
+            "type": "object",
+            "properties": {
+               "tagline": {
+                  "type": "string"
+               },
+               "brief": {
+                  "type": "string"
+               },
+               "full": {
+                  "type": "string"
+               }
+            },
+            "required": ["Tagline", "Brief", "Full"]
+         }
+      },
+      "required": ["Id", "Name", "Type", "View", "Info"]
+   }
+}

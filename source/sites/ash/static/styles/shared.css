@@ -1,0 +1,141 @@
+/* Defaulting */
+hr,
+p {
+   margin: 0;
+   padding: 0;
+}
+a {
+   text-decoration: none;
+   color: inherit;
+}
+li::marker {
+   display: none;
+}
+
+body {
+   margin: 0;
+   background-color: #f6f6f6;
+   font-size: 2.5vw;
+   font-family: "Source Code Pro", monospace;
+}
+
+/* Navigation bar */
+.navigation-bar {
+   z-index: 99;
+   position: fixed;
+   bottom: 4vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 70%;
+   gap: 2.9375rem;
+   border-width: 0.9vw;
+   border-style: solid;
+   border-color: #000;
+   background: #eee;
+}
+.navbar-menu {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 70%;
+   padding: 0;
+}
+.navbar-link {
+   padding: 5px;
+}
+.navbar-link.selected {
+   border-width: 0 0 0.3vh 0;
+   border-color: #000;
+   border-style: solid;
+}
+.navbar-link-text {
+   display: none;
+}
+.navbar-icon-image {
+   height: 2vh;
+}
+
+/* Overlay */
+.background-overlay {
+   position: fixed;
+   z-index: -1;
+   display: grid;
+   place-items: center;
+   width: 100%;
+   height: 100%;
+}
+.background-overlay-image {
+   width: 90%;
+   height: auto;
+}
+
+/* UI */
+.button {
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   border-width: 0.6vw;
+   border-style: solid;
+   border-color: #000;
+   background-color: #fff;
+   font-size: 3.2vw;
+   font-family: "Sometype Mono", monospace;
+   font-weight: 700;
+}
+
+.big-text {
+   text-decoration: underline;
+   font-family: "Sometype Mono", monospace;
+   font-size: 9vw;
+   margin: 0;
+}
+.normal-text {
+   font-family: "Source Code Pro", monospace;
+}
+
+/* For Desktop screens and landscape mode. */
+@media (aspect-ratio >= 0.8) {
+   body {
+      font-size: 1.2vw;
+   }
+   .button {
+      border-width: 3px;
+   }
+   .big-text {
+      font-size: 4.5vw;
+   }
+   .normal-text {
+      font-size: 2vh;
+   }
+   .background-overlay-image {
+      width: 40%;
+   }
+   .navigation-bar {
+      position: relative;
+      justify-content: start;
+      width: 100%;
+      margin-bottom: auto;
+      top: 0;
+      bottom: auto;
+      border-width: 0;
+      border-bottom: 2px solid #000;
+      background-color: #c0c0c0;
+   }
+   .navbar-icon-image {
+      display: none;
+   }
+   .navbar-link.selected {
+      font-weight: bold;
+      border-width: 0px;
+   }
+   .navbar-link-text {
+      display: block;
+      font-size: 2vh;
+   }
+   .navbar-menu {
+      width: fit-content;
+      gap: 10px;
+      margin: 2vh 0 2vh 5vh;
+   }
+}
