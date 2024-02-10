@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Syncopate } from "next/font/google";
-import nectarThumbnail from "@/assets/nectar-thumbnail.png";
 import "./globals.css";
 
-const syncopate = Syncopate({ weight: ["400", "700"], subsets: ["latin"] });
+import { Header, Footer } from "@/components/layout";
+import nectarThumbnail from "@/assets/nectar-thumbnail.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://adebola-io-nectar.vercel.app"),
@@ -15,6 +14,23 @@ export const metadata: Metadata = {
   },
 };
 
+function FontsPreload() {
+  return (
+    <>
+      <link
+        href="https://fonts.cdnfonts.com/css/helvetica-neue-55"
+        rel="stylesheet"
+      />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap"
+        rel="stylesheet"
+      />
+    </>
+  );
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,7 +38,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={syncopate.className}>{children}</body>
+      <head>
+        <FontsPreload />
+      </head>
+      <body className="font-helvetica">
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
