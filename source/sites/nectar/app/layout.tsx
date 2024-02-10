@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/scss/app.scss";
 
-import { Header, Footer } from "@/components/layout";
+import { Header, Footer, Sidebar } from "@/components/layout";
 import nectarThumbnail from "@/assets/nectar-thumbnail.png";
 
 export const metadata: Metadata = {
@@ -41,7 +41,8 @@ export default function RootLayout({
       <head>
         <FontsPreload />
       </head>
-      <body className="font-helvetica">
+      <body className="font-helvetica bg-nectar-alice-blue">
+        <Sidebar />
         <Header />
         {children}
         <Footer />

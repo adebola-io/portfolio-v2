@@ -1,0 +1,6 @@
+@function speed($speed: number) {
+  @if $speed == "normal" {
+    @return 300ms;
+  }
+  @return #{$speed}ms;
+}
