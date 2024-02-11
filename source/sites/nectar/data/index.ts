@@ -1,17 +1,4 @@
-import React from "react";
-
-export type NavigationItem =
-  | {
-      name: string;
-      type: "link";
-      to: string;
-    }
-  | {
-      name: string;
-      type: "action";
-      icon?: React.ReactElement;
-      onClick: React.MouseEventHandler;
-    };
+import { NavigationItem } from "@/types";
 
 export const navigationItems: NavigationItem[] = [
   {
