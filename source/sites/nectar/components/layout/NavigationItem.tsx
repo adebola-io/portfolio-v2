@@ -12,7 +12,7 @@ export function NavigationItem(props: NavigationItem) {
   if (props.type == "action") {
     return (
       <div className={navItemClasslist.toString()} onClick={props.onClick}>
-        {props.type}
+        {props.name}
       </div>
     );
   }

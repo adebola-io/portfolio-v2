@@ -41,7 +41,7 @@ export default function RootLayout({
       <head>
         <FontsPreload />
       </head>
-      <body className="font-helvetica bg-nectar-alice-blue">
+      <body className="font-helvetica text-[#002139] bg-nectar-alice-blue">
         <Sidebar />
         <Header />
         {children}

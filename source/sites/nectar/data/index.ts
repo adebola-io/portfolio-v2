@@ -23,7 +23,7 @@ export const navigationItems: NavigationItem[] = [
   },
   {
     name: "Resume",
-    type: "link",
-    to: "/contact",
+    type: "action",
+    onClick: (event) => {},
   },
 ];

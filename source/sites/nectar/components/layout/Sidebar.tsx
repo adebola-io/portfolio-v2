@@ -12,7 +12,7 @@ export function Sidebar() {
   const sidebarIsOpen = useStore((state) => state.sidebarIsOpen);
   const sidebarRef = useRef<HTMLElement>(null);
   const sidebarClasslist = new ClassList(
-    "fixed top-0 w-screen h-full bg-nectar-midnight-green px-[--screen-padding] flex items-center animate-[fade-in]"
+    "fixed top-0 w-screen h-screen bg-nectar-midnight-green px-[--screen-padding] flex items-center animate-[fade-in]"
   );
   if (!sidebarIsOpen) return null;
   return (
