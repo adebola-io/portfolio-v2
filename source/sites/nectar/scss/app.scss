@@ -1,15 +1,18 @@
-@import "./animation";
-@import "./utils";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import './animation';
+@import './utils';
+@import './typography.scss';
 
 :root {
   --header-height: 7.0426vh;
   --screen-padding: 5.4102%;
   --section-height: calc(100vh - var(--header-height));
   --dreamwave: linear-gradient(90deg, #f690ff, #38a0ff);
+
+  @apply max-[360px]:text-[0.8rem];
 }
 
 .sidebar-toggle {
@@ -24,18 +27,18 @@
   gap: 10px;
   aspect-ratio: 1;
   cursor: pointer;
-  transition-duration: speed("normal");
+  transition-duration: speed('normal');
   transition-property: rotate;
 
   &::before,
   &::after {
     display: block;
-    content: "";
+    content: '';
     width: 100%;
     height: 12%;
     border-radius: 5px;
     background-color: var(--color);
-    transition-duration: speed("normal");
+    transition-duration: speed('normal');
   }
 
   &.opened {
