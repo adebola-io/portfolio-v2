@@ -1,6 +1,6 @@
 'use client';
 import { useHeaderColors } from '@/hooks/useHeaderColors';
-import { Button } from './Button';
+import { Button } from './ui/Button';
 import TechStack from '@/assets/Tech-Stack.png';
 import { useRef } from 'react';
 import { ArrowLeft } from './icons/ArrowLeft';
@@ -29,7 +29,7 @@ export function HomeWhatIKnow() {
         Whether its web development, app creation, or scripting solutions,
         I&apos;ve got it covered.
       </p>
-      <Button className="p-[1.677vh_13.333vw] w-fit bg-[#87B0FF] border-[#1968A1] border-2 gap-[7px]">
+      <Button className="p-[1.677vh_13.333vw] w-fit bg-[#87B0FF] border-[#1968A1] text-[#1968A1] border-2 gap-[7px]">
         View Selected Works
         <ArrowLeft />
       </Button>

@@ -1,6 +1,6 @@
 'use client';
 import { useRef } from 'react';
-import { Button } from './Button';
+import { Button } from './ui/Button';
 import IntroductionOverlay from '@/assets/Introduction-Overlay.png';
 import { useHeaderColors } from '@/hooks/useHeaderColors';
 
