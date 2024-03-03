@@ -1,0 +1,12 @@
+{
+    "name": "portfolio-v2",
+    "description": "My portfolio variants.",
+    "scripts": {
+        "dev.ash": "cd source/sites/ash && go run .",
+        "dev.nectar": "cd source/sites/nectar && bun run dev",
+        "dev.entry": "cd source/sites/entry && bun run dev",
+
+        "install.nectar": "cd source/sites/nectar && bun install",
+        "install.entry": "cd source/sites/entry && bun install"
+    }
+}
