@@ -1,33 +1,36 @@
 'use client';
 import { useRef } from 'react';
 import { useStore } from '@/stores';
-import { ClassList } from '@/utils';
+import { ClassList } from '@/utils/ClassList';
 import { navigationItems } from '@/data';
-import { NavigationItem } from './NavigationItem';
+import { NavItem } from './NavigationItem';
 import { NavigationItem as NavItemType } from '@/types';
 
 const SIDEBAR_ANIMATION_DURATION = 450;
 
+const styles = getStyles();
 export function Sidebar() {
   const sidebarIsOpen = useStore((state) => state.sidebarIsOpen);
   const sidebarRef = useRef<HTMLElement>(null);
-  const sidebarClasslist = new ClassList(
-    'fixed top-0 w-screen h-screen bg-nectar-midnight-green px-[--screen-padding] z-[99] flex items-center animate-[fade-in]'
-  );
   if (!sidebarIsOpen) return null;
   return (
     <aside
       ref={sidebarRef}
-      className={sidebarClasslist.toString()}
+      className={styles.sidebar.css}
       style={{ animationDuration: `${SIDEBAR_ANIMATION_DURATION}ms` }}
     >
-      <ul className="flex flex-col gap-[28px]">
+      <ul className={styles.ul.css}>
         {navigationItems.map(SidebarNavigationItem)}
       </ul>
     </aside>
   );
 }
 
+const sidebarNavItem = new ClassList({
+  position: 'overflow-hidden',
+  size: 'w-max',
+  text: 'text-4xl',
+});
 function SidebarNavigationItem(link: NavItemType, index: number) {
   const style: React.CSSProperties = {
     animationDelay: `${SIDEBAR_ANIMATION_DURATION - 50}ms`,
@@ -36,9 +39,9 @@ function SidebarNavigationItem(link: NavItemType, index: number) {
     animationFillMode: 'both',
   };
   return (
-    <li key={index} className="w-max text-4xl overflow-hidden">
+    <li key={index} className={sidebarNavItem.css}>
       <div style={style}>
-        <NavigationItem {...link} key={index} />
+        <NavItem {...link} key={index} />
       </div>
     </li>
   );
@@ -60,7 +63,25 @@ export function SidebarToggler() {
       type="button"
       onClick={() => store.toggleSidebar()}
       style={sidebarTogglerStyles}
-      className={sidebarTogglerClasslist.toString()}
+      className={sidebarTogglerClasslist.css}
     />
   );
+}
+
+function getStyles() {
+  const sidebar = new ClassList({
+    position: 'fixed top-0 z-[99]',
+    display: 'flex items-center',
+    size: 'w-screen h-screen',
+    padding: 'px-[--screen-padding]',
+    color: 'bg-nectar-midnight-green',
+    animation: 'animate-[fade-in_500ms]',
+  });
+  const ul = new ClassList({
+    display: 'flex flex-col gap-[28px]',
+  });
+  return {
+    sidebar,
+    ul,
+  };
 }

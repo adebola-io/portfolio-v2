@@ -1,4 +1,5 @@
-import { ClassList } from '@/utils';
+'use client';
+import { ClassList } from '@/utils/ClassList';
 
 interface ButtonProps {
   className?: string;
@@ -15,7 +16,7 @@ export function Button(props: ButtonProps) {
   return (
     <button
       onClick={props.onClick}
-      className={buttonClassList.toString()}
+      className={buttonClassList.css}
       type={props.type ?? 'button'}
     >
       {props.children}

@@ -1,9 +1,45 @@
+interface ClassData {
+  position?: string;
+  display?: string;
+  size?: string;
+  padding?: string;
+  margin?: string;
+  text?: string;
+  color?: string;
+  background?: string;
+  border?: string;
+  animation?: string;
+  misc?: string;
+
+  before?: string;
+  after?: string;
+}
+
+type ClassInput = ClassData | string;
+
+function concatenateData(data: ClassData): string {
+  return Object.values(data).reduce((acc, item) => {
+    return `${acc} ${item}`;
+  }, '');
+}
+
 /** A representation of class names as an ordered map of values. */
 export class ClassList {
   private items: string[] = [];
-  constructor(initial?: string) {
-    if (initial !== undefined) {
-      this.items = initial.split(" ");
+  constructor(data?: ClassInput) {
+    switch (typeof data) {
+      case 'undefined': {
+        return;
+      }
+      case 'string': {
+        this.items = data.split(' ');
+        break;
+      }
+      default: {
+        // Usage
+        const dataStr: string = concatenateData(data);
+        this.items = dataStr.trim().split(' ');
+      }
     }
   }
   /**
@@ -11,10 +47,14 @@ export class ClassList {
    * If the class name already exists then nothing happens.
    * @param className The class name to add.
    */
-  add(className: string): ClassList {
-    if (!this.items.includes(className)) {
-      this.items.push(className);
+  add(className: string | ClassData): ClassList {
+    if (typeof className === 'string') {
+      if (!this.items.includes(className)) {
+        this.items.push(className);
+      }
+      return this;
     }
+
     return this;
   }
   /**
@@ -22,9 +62,9 @@ export class ClassList {
    * @param classNames The class names to add, separated by whitespace.
    */
   extend(classNames: string): ClassList {
-    classNames.split(/s/g).forEach((className) => {
+    for (const className of classNames.split(' ')) {
       this.add(className);
-    });
+    }
     return this;
   }
   /**
@@ -33,7 +73,7 @@ export class ClassList {
    * @param className The class name to remove.
    */
   remove(className: string): ClassList {
-    this.items = this.items.filter((item) => item != className);
+    this.items = this.items.filter((item) => item !== className);
     return this;
   }
   /**
@@ -47,7 +87,7 @@ export class ClassList {
    * Returns a concatenated string with every class name in the list,
    * in the order in which they were added.
    */
-  toString(): string {
-    return this.items.join(" ");
+  get css(): string {
+    return this.items.join(' ');
   }
 }

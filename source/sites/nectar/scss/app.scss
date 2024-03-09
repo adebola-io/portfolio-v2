@@ -64,6 +64,10 @@
   background-size: 270%;
 }
 
+[data-color] {
+  color: #67d5ed;
+}
+
 @layer utilities {
   .flex-center {
     display: flex;

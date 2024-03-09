@@ -1,4 +1,3 @@
-'use client';
 import { SidebarToggler } from './Sidebar';
 
 export function Header() {

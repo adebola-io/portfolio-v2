@@ -1,24 +1,34 @@
-'use client';
-import { useHeaderColors } from '@/hooks/useHeaderColors';
 import { Button } from './ui/Button';
 import TechStack from '@/assets/Tech-Stack.png';
-import { useRef } from 'react';
 import { ArrowLeft } from './icons/ArrowLeft';
+import { ClassList } from '@/utils/ClassList';
+
+const section = new ClassList({
+  position: 'sticky top-0',
+  display: 'flex flex-col justify-center gap-[20px]',
+  size: 'min-h-[--section-height] w-screen px-[--screen-padding]',
+  color: 'bg-nectar-lavender-blue text-[#1968A1]',
+  background: 'bg-center bg-cover',
+  border: 'rounded-t-[25px]',
+} as const);
+
+const h2 = new ClassList({
+  size: 'w-[90%]',
+});
+
+const button = new ClassList({
+  position: 'p-[1.677vh_13.333vw]',
+  display: 'w-fit gap-[7px]',
+  color: 'bg-[#87B0FF] border-[#1968A1] text-[#1968A1] border-2',
+});
 
 export function HomeWhatIKnow() {
-  const sectionRef = useRef<HTMLElement>(null);
-  useHeaderColors({
-    target: sectionRef,
-    foregroundColor: '',
-  });
-
   return (
     <section
-      ref={sectionRef}
       style={{ backgroundImage: `url(${TechStack.src})` }}
-      className="sticky top-0 flex flex-col justify-center min-h-[--section-height] px-[--screen-padding] gap-[20px] w-screen bg-nectar-lavender-blue rounded-t-[25px] text-[#1968A1] bg-center bg-cover"
+      className={section.css}
     >
-      <h2 className="w-[90%]">What do I Know?</h2>
+      <h2 className={h2.css}>What do I Know?</h2>
       <p>
         My skillset covers a wide spectrum of technologies, from front-end
         frameworks like React, Svelte and Vue, full stack frameworks like
@@ -29,7 +39,7 @@ export function HomeWhatIKnow() {
         Whether its web development, app creation, or scripting solutions,
         I&apos;ve got it covered.
       </p>
-      <Button className="p-[1.677vh_13.333vw] w-fit bg-[#87B0FF] border-[#1968A1] text-[#1968A1] border-2 gap-[7px]">
+      <Button className={button.css}>
         View Selected Works
         <ArrowLeft />
       </Button>
