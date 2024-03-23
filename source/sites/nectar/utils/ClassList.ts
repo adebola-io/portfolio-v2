@@ -10,9 +10,6 @@ interface ClassData {
   border?: string;
   animation?: string;
   misc?: string;
-
-  before?: string;
-  after?: string;
 }
 
 type ClassInput = ClassData | string;

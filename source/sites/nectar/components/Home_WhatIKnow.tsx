@@ -10,7 +10,7 @@ const section = new ClassList({
   color: 'bg-nectar-lavender-blue text-[#1968A1]',
   background: 'bg-center bg-cover',
   border: 'rounded-t-[25px]',
-} as const);
+});
 
 const h2 = new ClassList({
   size: 'w-[90%]',
@@ -30,7 +30,7 @@ export function HomeWhatIKnow() {
     >
       <h2 className={h2.css}>What do I Know?</h2>
       <p>
-        My skillset covers a wide spectrum of technologies, from front-end
+        My skill set covers a wide spectrum of technologies, from front-end
         frameworks like React, Svelte and Vue, full stack frameworks like
         Next.js and Nuxt.js, backend languages and runtimes like Node.js, Rust
         and Python, and CSS UI frameworks like Tailwind.
