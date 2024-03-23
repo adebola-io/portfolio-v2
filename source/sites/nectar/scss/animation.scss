@@ -1,0 +1,17 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-up-from-under {
+  from {
+    transform: translateY(150%);
+  }
+}
+
+@keyframes elongate {
+  from {
+    width: 0;
+  }
+}

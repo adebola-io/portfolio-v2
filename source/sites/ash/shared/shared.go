@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-var BASE_URL = "https://adebola-io-ash.uw.r.appspot.com"
+var BASE_URL = "https://ash-86su.onrender.com"
 var BASE_URL_DEV = "http://localhost:8080"
 
 type PortfolioWorkView struct {
