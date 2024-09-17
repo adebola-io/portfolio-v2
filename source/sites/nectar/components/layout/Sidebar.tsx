@@ -4,11 +4,10 @@ import { useStore } from '@/stores';
 import { ClassList } from '@/utils/ClassList';
 import { navigationItems } from '@/data';
 import { NavItem } from './NavigationItem';
-import { NavigationItem as NavItemType } from '@/types';
+import type { NavigationItem as NavItemType } from '@/types';
 
 const SIDEBAR_ANIMATION_DURATION = 450;
 
-const styles = getStyles();
 export function Sidebar() {
   const sidebarIsOpen = useStore((state) => state.sidebarIsOpen);
   const sidebarRef = useRef<HTMLElement>(null);
@@ -16,10 +15,10 @@ export function Sidebar() {
   return (
     <aside
       ref={sidebarRef}
-      className={styles.sidebar.css}
+      className="fixed top-0 z-[99] flex items-center w-screen h-screen px-[--screen-padding] bg-nectar-midnight-green animate-[fade-in_500ms]"
       style={{ animationDuration: `${SIDEBAR_ANIMATION_DURATION}ms` }}
     >
-      <ul className={styles.ul.css}>
+      <ul className="flex flex-col gap-[28px]">
         {navigationItems.map(SidebarNavigationItem)}
       </ul>
     </aside>
@@ -66,22 +65,4 @@ export function SidebarToggler() {
       className={sidebarTogglerClasslist.css}
     />
   );
-}
-
-function getStyles() {
-  const sidebar = new ClassList({
-    position: 'fixed top-0 z-[99]',
-    display: 'flex items-center',
-    size: 'w-screen h-screen',
-    padding: 'px-[--screen-padding]',
-    color: 'bg-nectar-midnight-green',
-    animation: 'animate-[fade-in_500ms]',
-  });
-  const ul = new ClassList({
-    display: 'flex flex-col gap-[28px]',
-  });
-  return {
-    sidebar,
-    ul,
-  };
 }
